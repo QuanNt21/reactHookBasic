@@ -4,9 +4,10 @@ import Nav from "./Nav/Nav";
 
 function App() {
     let name = "Eric"; //string
-    let obj = { name: "ERic", channel: "Hoi Dan IT" };
-    let link =
-        "https://www.youtube.com/watch?v=frVHVZDpsp4&list=PLncHg6Kn2JT4xzJyhXfmJ53dzwVbq-S_E";
+
+    const handleEventClick = (event) => {
+        console.log(">>> click me", event.target.value);
+    };
 
     return (
         <div className="App">
@@ -14,10 +15,17 @@ function App() {
                 <Nav />
                 <img src={logo} className="App-logo" alt="logo" />
                 <h1>Hello world with React and {name}!</h1>
-                <p>{JSON.stringify(obj)}</p>
-                <a href={link} target="_blank" rel="noreferrer">
-                    Visit my channel
-                </a>
+                <input
+                    type="text"
+                    value="Eric"
+                    onClick={(event) => handleEventClick(event)}
+                />
+                <button
+                    type="button"
+                    onClick={(event) => handleEventClick(event)}
+                >
+                    Click me
+                </button>
             </header>
         </div>
     );
