@@ -1,12 +1,18 @@
 import logo from "./logo.svg";
 import "./App.scss";
 import Nav from "./Nav/Nav";
+import { useState } from "react";
 
 function App() {
-    let name = "Eric"; //string
+    let [name, setName] = useState("Eric");
+    const [address, setAddress] = useState("");
 
     const handleEventClick = (event) => {
-        console.log(">>> click me", event.target.value);
+        setName(address);
+    };
+
+    const handleOnchangeInput = (event) => {
+        setAddress(event.target.value);
     };
 
     return (
@@ -17,8 +23,8 @@ function App() {
                 <h1>Hello world with React and {name}!</h1>
                 <input
                     type="text"
-                    value="Eric"
-                    onClick={(event) => handleEventClick(event)}
+                    value={address}
+                    onChange={(event) => handleOnchangeInput(event)}
                 />
                 <button
                     type="button"
