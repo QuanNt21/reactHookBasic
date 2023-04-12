@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import "./App.scss";
 import Nav from "./Nav/Nav";
 import { useState } from "react";
+import Todo from "./Todo/Todo";
 
 function App() {
     const [name, setName] = useState("Eric");
@@ -34,17 +35,7 @@ function App() {
                 <Nav />
                 <img src={logo} className="App-logo" alt="logo" />
                 <h1>Hello world with React and {name}!</h1>
-                <div className="todos-container">
-                    {todos.map((todo) => {
-                        // console.log(">>> check todo list: ", todo);
-                        return (
-                            <li className="todo-child" key={todo.id}>
-                                {" "}
-                                {todo.title}
-                            </li>
-                        );
-                    })}
-                </div>
+                <Todo todos={todos} title={"All todos"} />
                 <input
                     type="text"
                     value={address}
