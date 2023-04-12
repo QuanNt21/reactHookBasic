@@ -4,11 +4,24 @@ import Nav from "./Nav/Nav";
 import { useState } from "react";
 
 function App() {
-    let [name, setName] = useState("Eric");
+    const [name, setName] = useState("Eric");
     const [address, setAddress] = useState("");
+    const [todos, setTodos] = useState([
+        { id: "todo1", title: "Watching Hoi Dan IT Channel" },
+        { id: "todo2", title: "Doing homework" },
+        { id: "todo3", title: "Playing game" },
+    ]);
 
     const handleEventClick = (event) => {
-        setName(address);
+        if (!address) {
+            alert("emtpy input");
+            return;
+        }
+        //hook not merge state
+        //...spread syntax array js
+        let newTodo = { id: "abc", title: address };
+        setTodos([...todos, newTodo]);
+        setAddress("");
     };
 
     const handleOnchangeInput = (event) => {
@@ -21,6 +34,17 @@ function App() {
                 <Nav />
                 <img src={logo} className="App-logo" alt="logo" />
                 <h1>Hello world with React and {name}!</h1>
+                <div className="todos-container">
+                    {todos.map((todo) => {
+                        // console.log(">>> check todo list: ", todo);
+                        return (
+                            <li className="todo-child" key={todo.id}>
+                                {" "}
+                                {todo.title}
+                            </li>
+                        );
+                    })}
+                </div>
                 <input
                     type="text"
                     value={address}
