@@ -3,6 +3,7 @@ import "./App.scss";
 import Nav from "./Nav/Nav";
 import { useState, useEffect } from "react";
 import Todo from "./Todo/Todo";
+import Covid from "./Covid/Covid";
 
 function App() {
     const [name, setName] = useState("Eric");
@@ -44,7 +45,8 @@ function App() {
                 <Nav />
                 <img src={logo} className="App-logo" alt="logo" />
                 <h1>Hello world with React and {name}!</h1>
-                <Todo todos={todos} title={"All todos"} />
+                <Covid />
+                {/* <Todo todos={todos} title={"All todos"} />
                 <Todo
                     todos={todos.filter((item) => item.type === "eric")}
                     title={`Eric's todos`}
@@ -59,7 +61,7 @@ function App() {
                     onClick={(event) => handleEventClick(event)}
                 >
                     Click me
-                </button>
+                </button> */}
             </header>
         </div>
     );
