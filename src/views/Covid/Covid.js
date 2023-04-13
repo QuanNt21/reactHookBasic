@@ -4,6 +4,8 @@ import moment from "moment";
 
 const Covid = () => {
     const [dataCovid, setDataCovid] = useState([]);
+    const [loading, setLoading] = useState(true);
+
     // componentDidMount
     useEffect(() => {
         const fetchData = async () => {
@@ -18,10 +20,13 @@ const Covid = () => {
                 });
             }
             setDataCovid(data);
+            setLoading(false);
         };
 
         // call the function
-        fetchData();
+        setTimeout(async () => {
+            fetchData();
+        }, 3000);
     }, []);
 
     return (
@@ -38,7 +43,8 @@ const Covid = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {dataCovid &&
+                    {loading === false &&
+                        dataCovid &&
                         dataCovid.length > 0 &&
                         dataCovid.map((item) => {
                             return (
@@ -51,6 +57,14 @@ const Covid = () => {
                                 </tr>
                             );
                         })}
+                    {loading === true && (
+                        <tr>
+                            <td colSpan="5" style={{ textAlign: "center" }}>
+                                {" "}
+                                Loading...
+                            </td>
+                        </tr>
+                    )}
                 </tbody>
             </table>
         </>
