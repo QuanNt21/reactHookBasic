@@ -4,6 +4,7 @@ import Nav from "./Nav/Nav";
 import { useState, useEffect } from "react";
 import Todo from "./Todo/Todo";
 import Covid from "./Covid/Covid";
+import { CountDown, NewCountDown } from "./CountDown/CountDown";
 
 function App() {
     const [name, setName] = useState("Eric");
@@ -39,11 +40,18 @@ function App() {
         setAddress(event.target.value);
     };
 
+    const onTimesup = () => {
+        alert("times up");
+    };
+
     return (
         <div className="App">
             <header className="App-header">
                 <Nav />
                 <img src={logo} className="App-logo" alt="logo" />
+                <CountDown onTimesup={onTimesup} />
+                <span>---------------------</span>
+                <NewCountDown onTimesup={onTimesup} />
                 <h1>Hello world with React and {name}!</h1>
                 <Covid />
                 {/* <Todo todos={todos} title={"All todos"} />
