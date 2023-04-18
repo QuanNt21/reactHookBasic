@@ -6,6 +6,7 @@ import ListTodo from "./Todo/ListTodo";
 import Covid from "./Covid/Covid";
 import Blog from "./Blog/Blog";
 import DetailBlog from "./Blog/DetailBlog";
+import AddNewBlog from "./Blog/AddNewBlog";
 import { NewCountDown } from "./CountDown/CountDown";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -79,6 +80,7 @@ function App() {
                         ></Route>
                         <Route path="/blog" exact element={<Blog />} />
                         <Route path="/blog/:id" element={<DetailBlog />} />
+                        <Route path="/add-new-blog" element={<AddNewBlog />} />
                     </Routes>
                 </header>
             </div>
