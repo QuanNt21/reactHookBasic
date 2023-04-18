@@ -4,8 +4,10 @@ import Nav from "./Nav/Nav";
 import { useState, useEffect } from "react";
 import ListTodo from "./Todo/ListTodo";
 import Covid from "./Covid/Covid";
-import { CountDown, NewCountDown } from "./CountDown/CountDown";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Blog from "./Blog/Blog";
+import DetailBlog from "./Blog/DetailBlog";
+import { NewCountDown } from "./CountDown/CountDown";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
     const [address, setAddress] = useState("");
@@ -17,11 +19,11 @@ function App() {
     ]);
 
     useEffect(() => {
-        console.log("run use effect");
+        // console.log("run use effect");
     }, [address]);
 
     useEffect(() => {
-        console.log("run use effect todos");
+        // console.log("run use effect todos");
     }, [todos]);
 
     const handleEventClick = (event) => {
@@ -75,6 +77,8 @@ function App() {
                                 />
                             }
                         ></Route>
+                        <Route path="/blog" exact element={<Blog />} />
+                        <Route path="/blog/:id" element={<DetailBlog />} />
                     </Routes>
                 </header>
             </div>
